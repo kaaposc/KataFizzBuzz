@@ -20,6 +20,10 @@ var FizzBuzz = function (count) {
 		return result;
 	}
 
+	this.printAt = function (index) {
+		return index;
+	}
+
 	return this;
 }
 
@@ -42,6 +46,12 @@ describe('FizzBuzz', function() {
 			var expected = [1, 2, 'fizz', 4, 'buzz', 'fizz', 7, 8, 'fizz', 'buzz', 11, 'fizz', 13, 14, 'fizzbuzz'];
 			fizzbuzz = new FizzBuzz(15);
 			fizzbuzz.print().should.eql(expected);
+		});
+	});
+	describe('printAt()', function() {
+		it('should return 1 when asked for 1st element', function() {
+			fizzbuzz = new FizzBuzz(1);
+			fizzbuzz.printAt(1).should.equal(1);
 		});
 	});
 });
