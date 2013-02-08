@@ -1,16 +1,21 @@
 var FizzBuzz = function (count) {
 	this.count = count;
 
+	this.checkFizzBuzz = function (index) {
+		var item = '';
+		if (index % 3 == 0) {
+			item = 'fizz';
+		}
+		if (index % 5 == 0) {
+			item += 'buzz';
+		}
+		return item;
+	}
+
 	this.print = function () {
 		var result = [];
 		for (var i = 1; i <= this.count; i++) {
-			var item = '';
-			if (i % 3 == 0) {
-				item = 'fizz';
-			}
-			if (i % 5 == 0) {
-				item += 'buzz';
-			}
+			var item = this.checkFizzBuzz(i);
 			if (item !== '') {
 				result.push(item);
 			} else {
@@ -56,6 +61,6 @@ describe('FizzBuzz', function() {
 		it('should return fizz when asked for 3rd element', function() {
 			fizzbuzz = new FizzBuzz(3);
 			fizzbuzz.printAt(3).should.equal('fizz');
-		})
+		});
 	});
 });
