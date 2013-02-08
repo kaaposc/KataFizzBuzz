@@ -6,6 +6,8 @@ var FizzBuzz = function (count) {
 		for (var i = 1; i <= this.count; i++) {
 			if (i % 3 == 0) {
 				result.push('fizz');
+			} else if (i % 5 == 0) {
+				result.push('buzz');
 			} else {
 				result.push(i);
 			}
@@ -30,6 +32,11 @@ describe('FizzBuzz', function() {
 		it('should return [1, 2, fizz, 4, buzz] when count is 5', function() {
 			fizzbuzz = new FizzBuzz(5);
 			fizzbuzz.print().should.eql([1, 2, 'fizz', 4, 'buzz']);
+		});
+		it('should return [1, 2, fizz, 4, buzz, fizz, 7, 8, fizz, buzz, 11, fizz, 13, 14, fizzbuzz] when count is 15', function() {
+			var expected = [1, 2, 'fizz', 4, 'buzz', 'fizz', 7, 8, 'fizz', 'buzz', 11, 'fizz', 13, 14, 'fizzbuzz'];
+			fizzbuzz = new FizzBuzz(15);
+			fizzbuzz.print().should.eql(expected);
 		});
 	});
 });
