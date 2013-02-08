@@ -2,7 +2,15 @@ var FizzBuzz = function (count) {
 	this.count = count;
 
 	this.print = function () {
-		return [1];
+		var result = [];
+		for (var i = 1; i <= this.count; i++) {
+			if (i % 3 == 0) {
+				result.push('fizz');
+			} else {
+				result.push(i);
+			}
+		}
+		return result;
 	}
 
 	return this;
@@ -18,6 +26,10 @@ describe('FizzBuzz', function() {
 		it('should return [1, 2, fizz] when count is 3', function() {
 			fizzbuzz = new FizzBuzz(3);
 			fizzbuzz.print().should.eql([1, 2, 'fizz']);
+		});
+		it('should return [1, 2, fizz, 4, buzz] when count is 5', function() {
+			fizzbuzz = new FizzBuzz(5);
+			fizzbuzz.print().should.eql([1, 2, 'fizz', 4, 'buzz']);
 		});
 	});
 });
