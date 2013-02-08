@@ -26,7 +26,12 @@ var FizzBuzz = function (count) {
 	}
 
 	this.printAt = function (index) {
-		return index;
+		var item = this.checkFizzBuzz(index);
+		if (item !== '') {
+			return item;
+		} else {
+			return index;
+		}
 	}
 
 	return this;
