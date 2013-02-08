@@ -9,29 +9,23 @@ var FizzBuzz = function (count) {
 		if (index % 5 == 0) {
 			item += 'buzz';
 		}
-		return item;
-	}
-
-	this.print = function () {
-		var result = [];
-		for (var i = 1; i <= this.count; i++) {
-			var item = this.checkFizzBuzz(i);
-			if (item !== '') {
-				result.push(item);
-			} else {
-				result.push(i);
-			}
-		}
-		return result;
-	}
-
-	this.printAt = function (index) {
-		var item = this.checkFizzBuzz(index);
 		if (item !== '') {
 			return item;
 		} else {
 			return index;
 		}
+	}
+
+	this.print = function () {
+		var result = [];
+		for (var i = 1; i <= this.count; i++) {
+			result.push(this.checkFizzBuzz(i));
+		}
+		return result;
+	}
+
+	this.printAt = function (index) {
+		return this.checkFizzBuzz(index);
 	}
 
 	return this;
@@ -67,5 +61,9 @@ describe('FizzBuzz', function() {
 			fizzbuzz = new FizzBuzz(3);
 			fizzbuzz.printAt(3).should.equal('fizz');
 		});
+		it('should return fizzbuzz when asked for 12345th element', function() {
+			fizzbuzz = new FizzBuzz(12345);
+			fizzbuzz.printAt(12345).should.equal('fizzbuzz');
+		})
 	});
 });
