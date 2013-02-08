@@ -4,14 +4,15 @@ var FizzBuzz = function (count) {
 	this.print = function () {
 		var result = [];
 		for (var i = 1; i <= this.count; i++) {
+			var item = '';
 			if (i % 3 == 0) {
-				if (i % 5 == 0) {
-					result.push('fizzbuzz');
-				} else {
-					result.push('fizz');
-				}
-			} else if (i % 5 == 0) {
-				result.push('buzz');
+				item = 'fizz';
+			}
+			if (i % 5 == 0) {
+				item += 'buzz';
+			}
+			if (item !== '') {
+				result.push(item);
 			} else {
 				result.push(i);
 			}
