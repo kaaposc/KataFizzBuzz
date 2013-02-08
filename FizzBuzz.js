@@ -5,7 +5,11 @@ var FizzBuzz = function (count) {
 		var result = [];
 		for (var i = 1; i <= this.count; i++) {
 			if (i % 3 == 0) {
-				result.push('fizz');
+				if (i % 5 == 0) {
+					result.push('fizzbuzz');
+				} else {
+					result.push('fizz');
+				}
 			} else if (i % 5 == 0) {
 				result.push('buzz');
 			} else {
