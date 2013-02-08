@@ -53,5 +53,9 @@ describe('FizzBuzz', function() {
 			fizzbuzz = new FizzBuzz(1);
 			fizzbuzz.printAt(1).should.equal(1);
 		});
+		it('should return fizz when asked for 3rd element', function() {
+			fizzbuzz = new FizzBuzz(3);
+			fizzbuzz.printAt(3).should.equal('fizz');
+		})
 	});
 });
